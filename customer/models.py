@@ -22,18 +22,23 @@ class Customer(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     
+    # Retorna o número de telefone completo quando a função é chamado
     def get_full_phone_number(self):
         return f"({self.area_code}) {self.phone_number}"
     
+    # Retorna nome e sobrenome quando a função é chamada
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
     
+    # Retorna cidade - estado quando a função é chamada
     def get_full_city(self):
         return f"{self.city} - {self.state}"
     
+    # Retorna os dados do cliente
     def get_absolute_url(self):
         return reverse("customer:customer-update", kwargs={"id": self.id})
     
+    # Deleta um cliente do banco
     def get_delete_url(self):
         return reverse("customer:customer-delete", kwargs={"id": self.id})
     
